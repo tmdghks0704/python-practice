@@ -1,0 +1,15 @@
+{% extends 'boards/base.html' %}
+{% load static %}
+{% block body %}
+<h1 class='text-center'>Boards</h1>
+<img src="{% static 'jjang.jpg' %}" alt ='jjang'></img>
+<hr>
+{% for board in boards %}
+<p>글 번호 : {{board.pk}} </p>
+<p>글 제목 : {{board.title}}</p>
+<a href="{% url 'boards:detail' board.pk %}">[상세글 보러가기]</a>
+<hr>
+{% endfor %}
+<a href="{% url 'boards:new' %}">게시글 작성하기</a>
+{% endblock %}
+

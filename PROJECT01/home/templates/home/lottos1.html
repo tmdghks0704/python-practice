@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>발표된 로또번호.</h1>
+    {% for lotto in lottos2 %}
+    <p>{{lotto}}</p>
+    {% endfor %}
+    
+    <p>뽑은 로또번호 : {{lottos2}}</p>
+    <p>진자 로또 번호: {{real_lottos}}</p>
+    {% if lottos2 == real_lottos %}
+    <p>당첨입니다</p>
+    {% else %}
+    <p> 아쉽습니다.</p>
+    {% endif %}
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'boards/base.html' %}
+{% block body %}
+{% load crispy_forms_tags %}
+
+    {% if request.resolver_match.url_name == 'create' %}
+        <h1 class = 'text_center'>CREATE</h1><hr>
+    {% else %}
+        <h1 class = 'text_center'>EDIT</h1>
+    {% endif %}
+    <hr>
+<!--<form action='', method='POST'>-->
+<!--    { % csrf_token %}-->
+    <!--<div>-->
+    <!--    {{ form.title.labe_tag}}-->
+    <!--    {{ form.title}}-->
+    <!--</div>-->
+    <!--<div>-->
+    <!--    {{ form.content.label_tag}}-->
+    <!--    {{ form.content}}-->
+    <!--</div>-->
+<!--    <input type="submit" value="Submit"/>-->
+<!--</form>-->
+    {% crispy form %}
+    <hr>
+
+    {% if request.resolver_match.url_name == 'create' %}
+        <a href="{% url 'boards:index' %}">BACK</a>
+    {% else %}
+        <a href="{% url 'boards:detail' board.pk %}">BACK</a>
+    {% endif %}
+{% endblock %}
